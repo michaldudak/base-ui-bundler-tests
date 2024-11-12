@@ -14,6 +14,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@base_ui/react": "https://pkg.csb.dev/mui/base-ui/commit/f3724103/@base_ui/react",
     "@eslint/js": "^9.13.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
