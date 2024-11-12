@@ -1,4 +1,6 @@
 packages:
   - next-app
+  - node-cjs-app
+  - node-esm-app
   - vite-app
   - vite-swc-app
