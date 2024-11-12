@@ -1,0 +1,6 @@
+{
+  "name": "base-ui-bundler-tests",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.12.2"
+}
