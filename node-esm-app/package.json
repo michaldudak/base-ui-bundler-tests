@@ -1,5 +1,10 @@
 {
   "name": "node-esm-app",
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@base_ui/react": "https://pkg.csb.dev/mui/base-ui/commit/f3724103/@base_ui/react",
+    "react": "latest",
+    "react-dom": "latest"
+  }
 }
