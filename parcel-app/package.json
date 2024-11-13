@@ -1,0 +1,22 @@
+{
+  "name": "parcel-app",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@base_ui/react": "https://pkg.csb.dev/mui/base-ui/commit/f3724103/@base_ui/react",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "parcel": "^2.13.0",
+    "process": "^0.11.10"
+  },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
+}

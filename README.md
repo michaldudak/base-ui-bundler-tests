@@ -6,4 +6,4 @@ It is used to test if Base UI package can successfully be imported and used in t
 ## Known issues
 
 - Node.js ESM app fails to run as Base UI depends on @mui/utils that does not conform to the ESM spec.
-
+- Parcel app doesn't work when dependencies are installed with pnpm.
