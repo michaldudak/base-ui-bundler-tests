@@ -1,4 +1,5 @@
 packages:
+  - esbuild-app
   - next-app
   - node-cjs-app
   - node-esm-app
