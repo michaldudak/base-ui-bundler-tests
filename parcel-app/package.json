@@ -6,7 +6,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "@base_ui/react": "https://pkg.csb.dev/mui/base-ui/commit/f3724103/@base_ui/react",
+    "@base-ui-components/react": "https://pkg.csb.dev/mui/base-ui/commit/4e658ebc/@base-ui-components/react",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

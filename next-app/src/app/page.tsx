@@ -1,6 +1,6 @@
 "use client";
 import styles from './page.module.css';
-import { Menu } from '@base_ui/react/Menu';
+import { Menu } from '@base-ui-components/react/Menu';
 
 export default function Home() {
   return (

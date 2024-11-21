@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
-import { Menu } from '@base_ui/react/Menu';
+import { Menu } from '@base-ui-components/react/Menu';
 
 function App() {
   return React.createElement("div", null,
