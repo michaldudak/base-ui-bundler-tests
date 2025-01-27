@@ -5,5 +5,6 @@ It is used to test if Base UI package can successfully be imported and used in t
 
 ## Known issues
 
-- Node.js ESM app fails to run as Base UI depends on @mui/utils that does not conform to the ESM spec.
-- Parcel app doesn't work when dependencies are installed with pnpm.
+- Parcel app doesn't work out of the box.
+  It has to be configured to support export conditions in package.json.
+  The configuration must be present in the root package.json of the monorepo (https://github.com/parcel-bundler/parcel/issues/4155#issuecomment-2194126835).

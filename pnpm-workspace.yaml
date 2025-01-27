@@ -3,5 +3,6 @@ packages:
   - next-app
   - node-cjs-app
   - node-esm-app
+  - parcel-app
   - vite-app
   - vite-swc-app
