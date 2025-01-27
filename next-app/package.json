@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@base-ui-components/react": "https://pkg.csb.dev/mui/base-ui/commit/4e658ebc/@base-ui-components/react",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "@base-ui-components/react": "1.0.0-alpha.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.6"
   },
   "devDependencies": {
     "typescript": "^5",
@@ -20,7 +20,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3"
-  },
-  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
+    "eslint-config-next": "15.0.4"
+  }
 }

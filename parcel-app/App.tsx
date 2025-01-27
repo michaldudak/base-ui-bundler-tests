@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Menu } from '@base-ui-components/react/Menu';
+import { Menu } from '@base-ui-components/react/menu';
 
 export function App() {
   return (<div>
