@@ -8,3 +8,4 @@ packages:
   - vite-app
   - vite-swc-app
   - webpack-app
+  - scripts

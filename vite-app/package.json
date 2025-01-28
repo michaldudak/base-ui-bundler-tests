@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prebuild": "rimraf dist",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Vite --bundle ./dist/assets/index-*.js"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.5",
@@ -23,6 +25,7 @@
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",
     "globals": "latest",
+    "rimraf": "latest",
     "typescript": "latest",
     "typescript-eslint": "latest",
     "vite": "latest"

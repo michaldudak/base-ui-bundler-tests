@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "prebuild": "rimraf dist",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --bundle ./dist/index.*.js"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.5",
@@ -14,6 +16,7 @@
   "devDependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "parcel": "latest"
+    "parcel": "latest",
+    "rimraf": "latest"
   }
 }

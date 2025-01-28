@@ -1,0 +1,14 @@
+{
+  "name": "base-ui-bundler-tests-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "yargs": "^17"
+  },
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "@types/yargs": "^17.0.33",
+    "fast-glob": "^3.3.3"
+  }
+}

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "esbuild index.tsx --bundle --outfile=dist/index.js --servedir=.",
-    "build": "esbuild index.tsx --bundle --minify --sourcemap --outfile=dist/index.min.js"
+    "build": "esbuild index.tsx --bundle --minify --sourcemap --outfile=dist/index.min.js",
+    "prebuild": "rimraf dist",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name ESBuild --bundle dist/index.min.js"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.5",
@@ -14,6 +16,7 @@
   "devDependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "esbuild": "latest"
+    "esbuild": "latest",
+    "rimraf": "latest"
   }
 }
