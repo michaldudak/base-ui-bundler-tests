@@ -1,5 +1,6 @@
 packages:
   - esbuild-app
+  - jest-tests
   - next-app
   - node-cjs-app
   - node-esm-app
