@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "esbuild index.tsx --bundle --outfile=dist/index.js --servedir=."
+    "dev": "esbuild index.tsx --bundle --outfile=dist/index.js --servedir=.",
+    "build": "esbuild index.tsx --bundle --minify --sourcemap --outfile=dist/index.min.js"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.5",
