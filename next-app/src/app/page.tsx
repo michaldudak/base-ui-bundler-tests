@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import styles from './page.module.css';
 import { Menu } from '@base-ui-components/react/menu';
 
@@ -6,9 +6,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Menu.Root>
-        <Menu.Trigger>
-          Menu
-        </Menu.Trigger>
+        <Menu.Trigger>Menu</Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner>
             <Menu.Popup>

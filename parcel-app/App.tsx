@@ -5,9 +5,7 @@ export function App() {
   return (
     <div>
       <Menu.Root>
-        <Menu.Trigger>
-          Menu
-        </Menu.Trigger>
+        <Menu.Trigger>Menu</Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner>
             <Menu.Popup>
