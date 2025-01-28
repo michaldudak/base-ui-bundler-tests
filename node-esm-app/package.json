@@ -1,7 +1,11 @@
 {
   "name": "node-esm-app",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
+  "script": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.5",
     "react": "latest",

@@ -1,18 +1,19 @@
 {
   "name": "parcel-app",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "parcel": "^2.13.3"
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "parcel": "latest"
   }
 }
