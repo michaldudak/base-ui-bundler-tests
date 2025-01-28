@@ -1,0 +1,26 @@
+{
+  "name": "webpack-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "@base-ui-components/react": "1.0.0-alpha.5",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-typescript": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "babel-loader": "latest",
+    "html-webpack-plugin": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
+  },
+  "scripts": {
+    "dev": "webpack serve --mode=development",
+    "build": "webpack --mode=production"
+  }
+}

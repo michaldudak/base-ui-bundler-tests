@@ -7,3 +7,4 @@ packages:
   - parcel-app
   - vite-app
   - vite-swc-app
+  - webpack-app
