@@ -19,3 +19,4 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm analyze-bundles
+      - run: pnpm test
