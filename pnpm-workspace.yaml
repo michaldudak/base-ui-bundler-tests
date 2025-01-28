@@ -5,6 +5,7 @@ packages:
   - node-cjs-app
   - node-esm-app
   - parcel-app
+  - rolldown-app
   - vite-app
   - vite-swc-app
   - webpack-app

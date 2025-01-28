@@ -1,0 +1,22 @@
+{
+  "name": "rolldown-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "esbuild index.tsx --bundle --outfile=dist/index.js --servedir=.",
+    "build": "rolldown -c rolldown.config.ts",
+    "prebuild": "rimraf dist",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rolldown --bundle dist/index.min.js"
+  },
+  "dependencies": {
+    "@base-ui-components/react": "1.0.0-alpha.5",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "rolldown": "latest",
+    "rimraf": "latest"
+  }
+}
