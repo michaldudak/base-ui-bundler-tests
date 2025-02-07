@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-alpha.5",
+    "@base-ui-components/react": "1.0.0-alpha.6",
     "react": "latest",
     "react-dom": "latest"
   }
