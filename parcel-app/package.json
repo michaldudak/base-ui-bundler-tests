@@ -6,7 +6,7 @@
     "dev": "parcel index.html",
     "build": "parcel build index.html",
     "prebuild": "rimraf dist",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --bundle ./dist/index.*.js"
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --bundle \"./dist/index.*.js\""
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.6",

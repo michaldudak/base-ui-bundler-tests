@@ -7,7 +7,7 @@
     "build": "rsbuild build",
     "dev": "rsbuild dev --open",
     "preview": "rsbuild preview",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rsbuild --bundle ./dist/static/js/*.js"
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rsbuild --bundle \"./dist/static/js/*.js\""
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.6",

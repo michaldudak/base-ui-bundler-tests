@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "lint": "eslint .",
     "preview": "vite preview",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name 'Vite with SWC' --bundle ./dist/assets/index-*.js"
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name 'Vite with SWC' --bundle \"./dist/assets/index-*.js\""
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-alpha.6",
