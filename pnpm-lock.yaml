@@ -103,7 +103,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: latest
-        version: 24.0.10
+        version: 22.16.0
       '@types/react':
         specifier: latest
         version: 19.1.8
@@ -233,7 +233,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^22.14.1
-        version: 22.15.31
+        version: 22.16.0
       '@types/yargs':
         specifier: ^17.0.33
         version: 17.0.33
@@ -2720,8 +2720,8 @@ packages:
   '@types/node@22.14.1':
     resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
-  '@types/node@22.15.31':
-    resolution: {integrity: sha512-jnVe5ULKl6tijxUhvQeNbQG/84fHfg+yMak02cT8QVhBx/F05rAVxCGBYYTh2EKz22D6JF5ktXuNwdx7b9iEGw==}
+  '@types/node@22.16.0':
+    resolution: {integrity: sha512-B2egV9wALML1JCpv3VQoQ+yesQKAmNMBIAY7OteVrikcOcAkWm+dGL6qpeCktPjAv6N1JLnhbNiqS35UpFyBsQ==}
 
   '@types/node@24.0.10':
     resolution: {integrity: sha512-ENHwaH+JIRTDIEEbDK6QSQntAYGtbvdDXnMXnZaZ6k13Du1dPMmprkEHIL7ok2Wl2aZevetwTAb5S+7yIF+enA==}
@@ -7536,7 +7536,7 @@ snapshots:
       '@jest/fake-timers': 30.0.4
       '@jest/types': 30.0.1
       '@types/jsdom': 21.1.7
-      '@types/node': 24.0.10
+      '@types/node': 22.14.1
       jest-mock: 30.0.2
       jest-util: 30.0.2
       jsdom: 26.1.0
@@ -7545,7 +7545,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 30.0.4
       '@jest/types': 30.0.1
-      '@types/node': 24.0.10
+      '@types/node': 22.14.1
       jest-mock: 30.0.2
 
   '@jest/expect-utils@30.0.2':
@@ -7567,7 +7567,7 @@ snapshots:
     dependencies:
       '@jest/types': 30.0.1
       '@sinonjs/fake-timers': 13.0.5
-      '@types/node': 24.0.10
+      '@types/node': 22.14.1
       jest-message-util: 30.0.2
       jest-mock: 30.0.2
       jest-util: 30.0.2
@@ -8953,7 +8953,7 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/node@22.15.31':
+  '@types/node@22.16.0':
     dependencies:
       undici-types: 6.21.0
 
