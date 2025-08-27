@@ -9,5 +9,6 @@ packages:
   - rsbuild-app
   - vite-app
   - vite-swc-app
-  - webpack-app
+  - webpack-4-app
+  - webpack-5-app
   - scripts
