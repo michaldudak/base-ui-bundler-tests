@@ -1,0 +1,31 @@
+{
+  "name": "webpack-4-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --open",
+    "build": "webpack --mode=production",
+    "prebuild": "rimraf dist",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Webpack4 --bundle ./dist/bundle.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@base-ui-components/react": "1.0.0-beta.2",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-typescript": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "babel-loader": "^8",
+    "html-webpack-plugin": "^4",
+    "rimraf": "latest",
+    "webpack": "^4.37",
+    "webpack-cli": "^4.7",
+    "webpack-dev-server": "^4"
+  }
+}
