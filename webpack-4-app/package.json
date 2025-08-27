@@ -10,7 +10,7 @@
   },
   "type": "commonjs",
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-beta.2",
+    "@base-ui-components/react": "https://pkg.pr.new/mui/base-ui/@base-ui-components/react@4eee347",
     "react": "latest",
     "react-dom": "latest"
   },
