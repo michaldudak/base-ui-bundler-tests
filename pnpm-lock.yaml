@@ -103,7 +103,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: latest
-        version: 24.3.0
+        version: 22.18.0
       '@types/react':
         specifier: latest
         version: 19.1.12
@@ -233,7 +233,7 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^22.14.1
-        version: 22.17.2
+        version: 22.18.0
       '@types/yargs':
         specifier: ^17.0.33
         version: 17.0.33
@@ -2662,8 +2662,8 @@ packages:
   '@types/node-forge@1.3.13':
     resolution: {integrity: sha512-zePQJSW5QkwSHKRApqWCVKeKoSOt4xvEnLENZPjyvm9Ezdf/EyDeJM7jqLzOwjVICQQzvLZ63T55MKdJB5H6ww==}
 
-  '@types/node@22.17.2':
-    resolution: {integrity: sha512-gL6z5N9Jm9mhY+U2KXZpteb+09zyffliRkZyZOHODGATyC5B1Jt/7TzuuiLkFsSUMLbS1OLmlj/E+/3KF4Q/4w==}
+  '@types/node@22.18.0':
+    resolution: {integrity: sha512-m5ObIqwsUp6BZzyiy4RdZpzWGub9bqLJMvZDD0QMXhxjqMHMENlj+SqF5QxoUwaQNFe+8kz8XM8ZQhqkQPTgMQ==}
 
   '@types/node@24.2.1':
     resolution: {integrity: sha512-DRh5K+ka5eJic8CjH7td8QpYEV6Zo10gfRkjHCO3weqZHWDtAaSTFtl4+VMqOJ4N5jcuhZ9/l+yy8rVgw7BQeQ==}
@@ -8718,7 +8718,7 @@ snapshots:
     dependencies:
       '@types/node': 24.3.0
 
-  '@types/node@22.17.2':
+  '@types/node@22.18.0':
     dependencies:
       undici-types: 6.21.0
 
