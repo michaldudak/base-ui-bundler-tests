@@ -20,7 +20,7 @@
     "@babel/preset-typescript": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "babel-loader": "^8",
+    "babel-loader": "^10.0.0",
     "html-webpack-plugin": "^4",
     "rimraf": "latest",
     "webpack": "^4.37",
