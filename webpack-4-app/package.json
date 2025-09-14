@@ -24,7 +24,7 @@
     "html-webpack-plugin": "^4",
     "rimraf": "latest",
     "webpack": "^4.37",
-    "webpack-cli": "^4.7",
+    "webpack-cli": "^6.0.0",
     "webpack-dev-server": "^4"
   }
 }
