@@ -25,6 +25,6 @@
     "rimraf": "latest",
     "webpack": "^4.37",
     "webpack-cli": "^4.7",
-    "webpack-dev-server": "^4"
+    "webpack-dev-server": "^5.0.0"
   }
 }
