@@ -1,5 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "schedule": "* * * * 0"
+  "schedule": "* * * * 0",
+  "packageRules": [
+    {
+      "matchPaths": ["webpack-4-app/**"],
+      "matchPackageNames": ["webpack", "webpack-*", "babel-loader", "html-webpack-plugin"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
 }
