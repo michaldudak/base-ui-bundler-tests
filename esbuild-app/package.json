@@ -9,7 +9,7 @@
     "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name ESBuild --bundle dist/index.min.js"
   },
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-beta.3",
+    "@base-ui-components/react": "1.0.0-beta.4",
     "react": "latest",
     "react-dom": "latest"
   },
