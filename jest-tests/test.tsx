@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import { Menu } from '@base-ui-components/react/menu';
+import { Menu } from '@base-ui/react/menu';
 
 test('Menu renders', async () => {
   const handleItemClick = jest.fn();

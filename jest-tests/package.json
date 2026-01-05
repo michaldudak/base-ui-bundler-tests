@@ -6,7 +6,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@base-ui-components/react": "1.0.0-rc.0",
+    "@base-ui/react": "1.0.0",
     "react": "latest",
     "react-dom": "latest"
   },

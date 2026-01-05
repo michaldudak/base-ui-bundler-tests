@@ -1,4 +1,4 @@
-import { Menu } from '@base-ui-components/react/menu';
+import { Menu } from '@base-ui/react/menu';
 
 export default function App() {
   return (

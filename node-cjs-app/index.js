@@ -1,6 +1,6 @@
 const React = require('react');
 const { renderToString } = require('react-dom/server');
-const { Menu } = require('@base-ui-components/react/menu');
+const { Menu } = require('@base-ui/react/menu');
 
 function App() {
   return React.createElement(
