@@ -10,7 +10,7 @@
     "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rsbuild --bundle \"./dist/static/js/*.js\""
   },
   "dependencies": {
-    "@base-ui/react": "1.0.0",
+    "@base-ui/react": "1.1.0",
     "react": "latest",
     "react-dom": "latest"
   },
