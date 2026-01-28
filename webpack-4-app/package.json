@@ -9,7 +9,7 @@
     "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Webpack4 --bundle ./dist/bundle.js"
   },
   "dependencies": {
-    "@base-ui/react": "1.1.0",
+    "@base-ui/react": "catalog:",
     "react": "latest",
     "react-dom": "latest"
   },

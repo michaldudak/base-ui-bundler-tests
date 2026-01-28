@@ -12,3 +12,6 @@ packages:
   - webpack-4-app
   - webpack-5-app
   - scripts
+
+catalog:
+  '@base-ui/react': 1.1.0

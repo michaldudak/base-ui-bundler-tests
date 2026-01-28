@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@base-ui/react": "1.1.0",
+    "@base-ui/react": "catalog:",
     "react": "latest",
     "react-dom": "latest"
   }
