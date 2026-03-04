@@ -4,7 +4,13 @@
   "schedule": "* * * * 0",
   "packageRules": [
     {
-      "matchPaths": ["webpack-4-app/**"],
+      "description": "Avoid lockfile-only webpack workspace updates touching unrelated apps",
+      "matchPackageNames": ["webpack", "webpack-*", "babel-loader", "html-webpack-plugin"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "description": "Keep the legacy webpack-4 app on its current major versions",
+      "matchFileNames": ["webpack-4-app/**"],
       "matchPackageNames": ["webpack", "webpack-*", "babel-loader", "html-webpack-plugin"],
       "matchUpdateTypes": ["major"],
       "enabled": false
