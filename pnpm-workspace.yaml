@@ -13,5 +13,16 @@ packages:
   - webpack-5-app
   - scripts
 
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
+  core-js: false
+  esbuild: false
+  fsevents: false
+  lmdb: false
+  msgpackr-extract: false
+  sharp: false
+  unrs-resolver: false
+
 catalog:
   '@base-ui/react': 1.4.1
