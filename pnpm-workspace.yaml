@@ -25,4 +25,4 @@ allowBuilds:
   unrs-resolver: false
 
 catalog:
-  '@base-ui/react': 1.4.1
+  '@base-ui/react': 1.5.0
