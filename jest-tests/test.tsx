@@ -1,17 +1,11 @@
 import * as React from 'react';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { BaseUiFixture } from './BaseUiFixture';
 
-test('Menu renders', async () => {
+test('Base UI prehydration fixture renders', async () => {
   render(<BaseUiFixture />);
-
-  const menuButton = screen.getByRole('button');
-
-  fireEvent.click(menuButton);
   await act(async () => {});
 
-  const item1 = screen.queryByText('Item 1');
-  expect(item1).not.toBeNull();
-
-  fireEvent.click(item1!);
+  expect(screen.getByRole('tab', { name: 'Bundlers' })).not.toBeNull();
+  expect(screen.getAllByRole('slider', { hidden: true }).length).toBe(2);
 });

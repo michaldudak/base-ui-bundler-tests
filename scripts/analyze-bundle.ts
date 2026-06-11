@@ -22,7 +22,9 @@ function run(options: RunOptions) {
 
   let totalSize = 0;
   let hasUnnecessaryComponents = false;
-  let hasUnnecessaryParts = false;
+  const unusedNamespaceParts = new Set<string>();
+  let hasTabsPrehydrationScript = false;
+  let hasSliderPrehydrationScript = false;
 
   files.forEach((file) => {
     const fileSize = fs.statSync(file).size / 1024;
@@ -30,12 +32,31 @@ function run(options: RunOptions) {
 
     const fileContent = fs.readFileSync(file, 'utf-8');
     hasUnnecessaryComponents ||= fileContent.includes('PreviewCard');
-    hasUnnecessaryParts ||= fileContent.includes('MenuCheckboxItem');
+    if (
+      fileContent.includes('TabsPanel') ||
+      fileContent.includes('tabpanel') ||
+      fileContent.includes('data-hidden')
+    ) {
+      unusedNamespaceParts.add('Tabs.Panel');
+    }
+    if (fileContent.includes('SliderValue') || fileContent.includes('aria-live')) {
+      unusedNamespaceParts.add('Slider.Value');
+    }
+    hasTabsPrehydrationScript ||= fileContent.includes(
+      'document.currentScript.previousElementSibling',
+    );
+    hasSliderPrehydrationScript ||= fileContent.includes('currentScript?.parentElement');
   });
 
   console.log(`Bundle size: ${totalSize.toFixed().padStart(3)} kiB`);
   console.log(
-    `Tree shaking: ${hasUnnecessaryComponents ? '🔴 includes unused components' : hasUnnecessaryParts ? '🟡 includes unnecessary parts' : '🟢 all good'}`,
+    `Tree shaking: ${hasUnnecessaryComponents ? '🔴 includes unused components' : unusedNamespaceParts.size > 0 ? '🟡 includes unused namespace parts' : '🟢 all good'}`,
+  );
+  if (unusedNamespaceParts.size > 0) {
+    console.log(`Unused namespace parts: ${Array.from(unusedNamespaceParts).join(', ')}`);
+  }
+  console.log(
+    `Prehydration scripts: ${hasTabsPrehydrationScript || hasSliderPrehydrationScript ? '🔴 includes real script text' : '🟢 stubs only'}`,
   );
 }
 
