@@ -1077,7 +1077,7 @@ packages:
     engines: {node: '>=6.9.0'}
 
   '@base-ui/react@https://pkg.pr.new/mui/base-ui/@base-ui/react@849178e':
-    resolution: {tarball: https://pkg.pr.new/mui/base-ui/@base-ui/react@849178e}
+    resolution: {tarball: https://pkg.pr.new/mui/base-ui/@base-ui/react@849178e, integrity: sha512-oQ3j5LfRqL3qJGyOC5hwpMfzg+O4JrlwqmkDybQ8HRu/6eKXO9FybjyD6WVTOpv4QEwGekf3MkW/aAf8qH73OQ==}
     version: 1.5.0
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -1095,7 +1095,7 @@ packages:
         optional: true
 
   '@base-ui/utils@https://pkg.pr.new/mui/base-ui/@base-ui/utils@849178ead370f10922d1e6666b0ae9ac8afb0eeb':
-    resolution: {tarball: https://pkg.pr.new/mui/base-ui/@base-ui/utils@849178ead370f10922d1e6666b0ae9ac8afb0eeb}
+    resolution: {tarball: https://pkg.pr.new/mui/base-ui/@base-ui/utils@849178ead370f10922d1e6666b0ae9ac8afb0eeb, integrity: sha512-28JQP02z+VGU9rq/fw5u/ymdol90bVUf5f9r2/TYJuBBB321s7twVAWD/KnAyf5aAZyitKDWHkJKuOaHJ5uNBg==}
     version: 0.2.9
     peerDependencies:
       '@types/react': ^17 || ^18 || ^19
