@@ -1,7 +1,9 @@
-import * as React from 'react';
+'use client';
+
+// This file is generated from templates/BaseUiFixture.tsx. Edit the template instead.
 import { Menu } from '@base-ui/react/menu';
 
-export function App() {
+export function BaseUiFixture() {
   return (
     <div>
       <Menu.Root>
