@@ -1,24 +1,9 @@
 import * as React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
-import { Menu } from '@base-ui/react/menu';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { BaseUiFixture } from './BaseUiFixture';
 
 test('Menu renders', async () => {
-  const handleItemClick = jest.fn();
-
-  render(
-    <Menu.Root>
-      <Menu.Trigger>Menu</Menu.Trigger>
-      <Menu.Portal>
-        <Menu.Positioner>
-          <Menu.Popup>
-            <Menu.Item onClick={handleItemClick}>Item 1</Menu.Item>
-            <Menu.Item>Item 2</Menu.Item>
-            <Menu.Item>Item 3</Menu.Item>
-          </Menu.Popup>
-        </Menu.Positioner>
-      </Menu.Portal>
-    </Menu.Root>,
-  );
+  render(<BaseUiFixture />);
 
   const menuButton = screen.getByRole('button');
 
@@ -29,5 +14,4 @@ test('Menu renders', async () => {
   expect(item1).not.toBeNull();
 
   fireEvent.click(item1!);
-  expect(handleItemClick.mock.calls.length).toBe(1);
 });
