@@ -1,0 +1,27 @@
+{
+  "name": "bun-app",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "bun ./build.ts",
+    "prebuild": "rimraf dist index.js index.js.map",
+    "typecheck": "tsc --noEmit",
+    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name Bun --bundle dist/index.js"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "rimraf": "latest",
+    "typescript": "latest"
+  }
+}

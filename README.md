@@ -9,8 +9,8 @@ The shared components live in the `templates` directory.
 Edit the template files instead of editing the generated copies inside each project:
 
 - `templates/BaseUiFixture.tsx` is copied into each browser, Next.js, and Jest project.
-- `templates/node-esm-index.js` is copied to `node-esm-app/index.js`.
-- `templates/node-cjs-index.js` is copied to `node-cjs-app/index.js`.
+- `templates/node-esm-index.js` is copied to `src/node-esm-app/index.js`.
+- `templates/node-cjs-index.js` is copied to `src/node-cjs-app/index.js`.
 
 Run `pnpm run sync-templates` after changing a template.
 The `build` and `test` scripts run this automatically before building or testing.

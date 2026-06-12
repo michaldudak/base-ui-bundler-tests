@@ -1,0 +1,28 @@
+{
+  "name": "rsbuild-app",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev",
+    "preview": "rsbuild preview",
+    "typecheck": "tsc --noEmit",
+    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name Rsbuild --html ./dist/index.html"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^2.0.0",
+    "@rsbuild/plugin-react": "^2.0.0",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "^6.0.0"
+  }
+}
