@@ -11,6 +11,7 @@ const copies = [
       'esbuild-app/BaseUiFixture.tsx',
       'jest-tests/BaseUiFixture.tsx',
       'next-app/src/app/BaseUiFixture.tsx',
+      'next-webpack-app/src/app/BaseUiFixture.tsx',
       'parcel-app/BaseUiFixture.tsx',
       'rolldown-app/BaseUiFixture.tsx',
       'rsbuild-app/src/BaseUiFixture.tsx',

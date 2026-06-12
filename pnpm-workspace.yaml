@@ -2,6 +2,7 @@ packages:
   - esbuild-app
   - jest-tests
   - next-app
+  - next-webpack-app
   - node-cjs-app
   - node-esm-app
   - parcel-app
