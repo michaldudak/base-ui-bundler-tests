@@ -7,7 +7,7 @@
     "build": "rspack build --mode=production",
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rspack --bundle \"./dist/static/js/*.js\""
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rspack --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

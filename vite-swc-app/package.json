@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc -b",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name 'Vite with SWC' --bundle \"./dist/assets/index-*.js\""
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name 'Vite with SWC' --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

@@ -7,7 +7,7 @@
     "build": "parcel build index.html",
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --bundle \"./dist/*.js\""
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

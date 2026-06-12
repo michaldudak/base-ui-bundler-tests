@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro check",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Astro --bundle \"./dist/_astro/*.js\""
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Astro --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

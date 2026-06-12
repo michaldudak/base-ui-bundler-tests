@@ -1,5 +1,9 @@
 const result = await Bun.build({
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
   entrypoints: ['./index.tsx'],
+  env: 'disable',
   minify: true,
   naming: {
     entry: '[name].js',
