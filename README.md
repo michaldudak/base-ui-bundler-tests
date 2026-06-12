@@ -17,6 +17,5 @@ The `build` and `test` scripts run this automatically before building or testing
 
 ## Known issues
 
-- Parcel app doesn't work out of the box.
-  It has to be configured to support export conditions in package.json.
-  The configuration must be present in the root package.json of the monorepo (https://github.com/parcel-bundler/parcel/issues/4155#issuecomment-2194126835).
+- Webpack 4 needs to run Babel on node_modules (so not have `exclude: /node_modules/` on the `babel-loader` rule).
+  This is required, as Base UI uses newer JS syntax that Webpack doesn't understand.

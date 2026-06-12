@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   }
 }
