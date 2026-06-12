@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "test": "jest"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "@types/react-dom": "latest",
     "babel-jest": "latest",
     "jest": "latest",
-    "jest-environment-jsdom": "latest"
+    "jest-environment-jsdom": "latest",
+    "typescript": "latest"
   }
 }

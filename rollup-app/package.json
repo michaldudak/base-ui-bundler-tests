@@ -1,0 +1,30 @@
+{
+  "name": "rollup-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "prebuild": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rollup --bundle dist/index.min.js"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "latest",
+    "@rollup/plugin-node-resolve": "latest",
+    "@rollup/plugin-replace": "latest",
+    "@rollup/plugin-terser": "latest",
+    "@rollup/plugin-typescript": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "rimraf": "latest",
+    "rollup": "latest",
+    "tslib": "latest",
+    "typescript": "latest"
+  }
+}

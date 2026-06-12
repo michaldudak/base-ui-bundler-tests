@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
     "prebuild": "rimraf ./dist",
     "start": "next start",
     "lint": "next lint",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Next.js --bundle \"./dist/_next/static/chunks/*.js\""
+    "typecheck": "tsc --noEmit",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name \"Next.js (Turbopack)\" --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

@@ -5,7 +5,8 @@
   "scripts": {
     "sync-templates": "node scripts/sync-templates.mjs",
     "build": "pnpm run sync-templates && pnpm -r run build",
-    "analyze-bundles": "pnpm --recursive --aggregate-output run analyze-bundle",
+    "analyze-bundles": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/analyze-bundle.ts --workspace",
+    "typecheck": "pnpm run sync-templates && pnpm -r run typecheck",
     "test": "pnpm run sync-templates && pnpm -r run test"
   },
   "packageManager": "pnpm@11.5.3",

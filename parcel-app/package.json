@@ -6,7 +6,8 @@
     "dev": "parcel index.html",
     "build": "parcel build index.html",
     "prebuild": "rimraf dist",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --bundle \"./dist/*.js\""
+    "typecheck": "tsc --noEmit",
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Parcel --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
@@ -17,6 +18,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "parcel": "latest",
-    "rimraf": "latest"
+    "rimraf": "latest",
+    "typescript": "latest"
   }
 }
