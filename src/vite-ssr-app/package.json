@@ -1,0 +1,31 @@
+{
+  "name": "vite-ssr-app",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build --outDir dist/client && vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "prebuild": "rimraf dist",
+    "preview": "node server.js",
+    "typecheck": "tsc -b",
+    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name \"Vite SSR\" --html ./dist/client/index.html"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "@types/node": "latest",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "rimraf": "latest",
+    "typescript": "latest"
+  }
+}

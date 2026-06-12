@@ -10,7 +10,7 @@
     },
     {
       "description": "Keep the legacy webpack-4 app on its current major versions",
-      "matchFileNames": ["webpack-4-app/**"],
+      "matchFileNames": ["src/webpack-4-app/**"],
       "matchPackageNames": ["webpack", "webpack-*", "babel-loader", "html-webpack-plugin"],
       "matchUpdateTypes": ["major"],
       "enabled": false
