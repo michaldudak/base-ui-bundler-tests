@@ -13,9 +13,6 @@
     "test": "pnpm run sync-templates && pnpm -r run test"
   },
   "packageManager": "pnpm@11.5.3",
-  "@parcel/resolver-default": {
-    "packageExports": true
-  },
   "devDependencies": {
     "prettier": "^3.5.3"
   }

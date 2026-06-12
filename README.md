@@ -16,7 +16,3 @@ Run `pnpm run sync-templates` after changing a template.
 The `build` and `test` scripts run this automatically before building or testing.
 
 ## Known issues
-
-- Parcel app doesn't work out of the box.
-  It has to be configured to support export conditions in package.json.
-  The configuration must be present in the root package.json of the monorepo (https://github.com/parcel-bundler/parcel/issues/4155#issuecomment-2194126835).

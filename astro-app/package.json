@@ -18,13 +18,13 @@
     "@base-ui/react": "catalog:",
     "@astrojs/react": "latest",
     "astro": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@astrojs/check": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "rimraf": "latest",
     "typescript": "latest"
   }
