@@ -1,14 +1,14 @@
 {
-  "name": "next-app",
+  "name": "next-webpack-app",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "prebuild": "rimraf ./dist",
     "start": "next start",
     "lint": "next lint",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name \"Next.js (Turbopack)\" --bundle \"./dist/_next/static/chunks/*.js\""
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name \"Next.js (Webpack)\" --bundle \"./dist/_next/static/chunks/*.js\""
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
