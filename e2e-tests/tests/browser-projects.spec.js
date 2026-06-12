@@ -71,7 +71,6 @@ const projects = [
   {
     name: 'parcel-app',
     title: 'Parcel app',
-    skip: 'Parcel compatibility is being fixed in a separate worktree.',
     modes: {
       dev: { command: ['pnpm', ['--dir', 'src/parcel-app', 'dev', '--host', '127.0.0.1']] },
       production: {
@@ -203,8 +202,6 @@ for (const project of projects) {
   test.describe(project.name, () => {
     for (const [mode, config] of Object.entries(project.modes)) {
       test(`${mode} renders and handles menu interaction`, async ({ page }, testInfo) => {
-        test.skip(Boolean(project.skip), project.skip);
-
         const port = nextPort++;
         const browserLogs = [];
 
