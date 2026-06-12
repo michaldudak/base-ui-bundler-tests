@@ -10,7 +10,8 @@
     "build": "pnpm run sync-templates && pnpm -r run build",
     "analyze-bundles": "node scripts/analyze-bundle.ts --workspace",
     "typecheck": "pnpm run sync-templates && pnpm -r run typecheck",
-    "test": "pnpm run sync-templates && pnpm -r run test"
+    "test": "pnpm run sync-templates && pnpm -r run test",
+    "test:browser": "pnpm run sync-templates && pnpm --filter e2e-tests test:browser"
   },
   "packageManager": "pnpm@11.5.3",
   "@parcel/resolver-default": {
