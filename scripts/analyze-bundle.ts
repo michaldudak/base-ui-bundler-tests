@@ -397,7 +397,7 @@ function printTable(results: AnalysisResult[]) {
 }
 
 function runWorkspace() {
-  const packageJsonFiles = glob.sync('*/package.json');
+  const packageJsonFiles = glob.sync('src/*/package.json');
   const results = packageJsonFiles
     .flatMap((packageJsonFile) => {
       const packageDir = path.dirname(packageJsonFile);

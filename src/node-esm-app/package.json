@@ -1,0 +1,15 @@
+{
+  "name": "node-esm-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "typecheck": "node --check index.js"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  }
+}

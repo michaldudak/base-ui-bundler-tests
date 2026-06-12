@@ -1,3 +1,6 @@
 node_modules
 dist
 .parcel-cache
+.pnpm-store
+playwright-report
+test-results

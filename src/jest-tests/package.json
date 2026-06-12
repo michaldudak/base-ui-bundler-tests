@@ -1,0 +1,28 @@
+{
+  "name": "jest-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@base-ui/react": "catalog:",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "^7.29.7",
+    "@babel/preset-typescript": "latest",
+    "@testing-library/dom": "latest",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "latest",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "babel-jest": "latest",
+    "jest": "latest",
+    "jest-environment-jsdom": "latest",
+    "typescript": "latest"
+  }
+}
