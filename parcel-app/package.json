@@ -12,14 +12,19 @@
     "typecheck": "tsc --noEmit",
     "analyze-bundle": "node ../scripts/analyze-bundle.ts --name Parcel --html ./dist/index.html"
   },
+  "targets": {
+    "default": {
+      "context": "browser"
+    }
+  },
   "dependencies": {
     "@base-ui/react": "catalog:",
-    "react": "latest",
-    "react-dom": "latest"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "parcel": "latest",
     "rimraf": "latest",
     "typescript": "latest"
