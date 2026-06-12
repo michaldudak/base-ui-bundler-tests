@@ -82,6 +82,10 @@ const styles = {
     color: '#182230',
     font: 'inherit',
   },
+  tabPanel: {
+    color: '#344054',
+    padding: '12px',
+  },
   tabsIndicator: {
     position: 'absolute',
     left: 'var(--active-tab-left)',
@@ -141,6 +145,12 @@ export function BaseUiFixture() {
             </Tabs.Tab>
             <Tabs.Indicator renderBeforeHydration={false} style={styles.tabsIndicator} />
           </Tabs.List>
+          <Tabs.Panel value="bundlers" style={styles.tabPanel}>
+            Bundlers panel
+          </Tabs.Panel>
+          <Tabs.Panel value="ssr" style={styles.tabPanel}>
+            SSR panel
+          </Tabs.Panel>
         </Tabs.Root>
       </section>
 

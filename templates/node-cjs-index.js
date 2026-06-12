@@ -23,6 +23,8 @@ function App() {
           React.createElement(Tabs.Tab, { value: 'ssr' }, 'SSR'),
           React.createElement(Tabs.Indicator, { renderBeforeHydration: false }),
         ),
+        React.createElement(Tabs.Panel, { value: 'bundlers' }, 'Bundlers panel'),
+        React.createElement(Tabs.Panel, { value: 'ssr' }, 'SSR panel'),
       ),
     ),
     React.createElement(
@@ -38,7 +40,7 @@ function App() {
           null,
           React.createElement(
             Menu.Positioner,
-            null,
+            { align: 'start' },
             React.createElement(
               Menu.Popup,
               null,

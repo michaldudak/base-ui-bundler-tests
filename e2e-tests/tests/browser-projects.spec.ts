@@ -15,16 +15,22 @@ for (const project of projects) {
           await expect(fixture.getByRole('heading', { name: 'Tabs' })).toBeVisible();
           const bundlersTab = fixture.getByRole('tab', { name: 'Bundlers' });
           const ssrTab = fixture.getByRole('tab', { name: 'SSR' });
+          const bundlersPanel = fixture.getByText('Bundlers panel');
+          const ssrPanel = fixture.getByText('SSR panel');
 
           await expect(bundlersTab).toBeVisible();
           await expect(ssrTab).toBeVisible();
           await expect(bundlersTab).toHaveAttribute('aria-selected', 'true');
           await expect(ssrTab).toHaveAttribute('aria-selected', 'false');
+          await expect(bundlersPanel).toBeVisible();
+          await expect(ssrPanel).toBeHidden();
 
           await ssrTab.click();
 
           await expect(bundlersTab).toHaveAttribute('aria-selected', 'false');
           await expect(ssrTab).toHaveAttribute('aria-selected', 'true');
+          await expect(bundlersPanel).toBeHidden();
+          await expect(ssrPanel).toBeVisible();
 
           await expect(fixture.getByRole('heading', { name: 'Menu' })).toBeVisible();
           await fixture.getByRole('button', { name: 'Options' }).click();

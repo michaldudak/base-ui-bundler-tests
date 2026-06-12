@@ -99,17 +99,15 @@ function analyzeFiles(options: {
     totalSize += fileSize;
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+    // PreviewCard is not used in the fixtures. If it's present in the bundle, it means tree shaking didn't work properly.
     hasUnnecessaryComponents ||= fileContent.includes('PreviewCard');
-    if (
-      fileContent.includes('TabsPanel') ||
-      fileContent.includes('tabpanel') ||
-      fileContent.includes('data-hidden')
-    ) {
-      unusedNamespaceParts.add('Tabs.Panel');
+
+    // Some Menu parts are used in the fixtures, but not Menu.CheckboxItem, so we can check for that specific part to get more insights about tree shaking effectiveness.
+    if (fileContent.includes('MenuCheckboxItem')) {
+      unusedNamespaceParts.add('Menu.CheckboxItem');
     }
-    if (fileContent.includes('SliderValue') || fileContent.includes('aria-live')) {
-      unusedNamespaceParts.add('Slider.Value');
-    }
+
     detectPrehydrationScripts(fileContent).forEach((scriptName) => {
       prehydrationScriptNames.add(scriptName);
     });
