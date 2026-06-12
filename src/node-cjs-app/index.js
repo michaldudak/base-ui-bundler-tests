@@ -1,6 +1,7 @@
 // This file is generated from templates/node-cjs-index.js. Edit the template instead.
 const React = require('react');
 const { renderToString } = require('react-dom/server');
+const { Menu } = require('@base-ui/react/menu');
 const { Slider } = require('@base-ui/react/slider');
 const { Tabs } = require('@base-ui/react/tabs');
 
@@ -21,6 +22,31 @@ function App() {
           React.createElement(Tabs.Tab, { value: 'bundlers' }, 'Bundlers'),
           React.createElement(Tabs.Tab, { value: 'ssr' }, 'SSR'),
           React.createElement(Tabs.Indicator, { renderBeforeHydration: false }),
+        ),
+      ),
+    ),
+    React.createElement(
+      'section',
+      { 'aria-label': 'Menu fixture' },
+      React.createElement('h1', null, 'Menu fixture'),
+      React.createElement(
+        Menu.Root,
+        null,
+        React.createElement(Menu.Trigger, null, 'Options'),
+        React.createElement(
+          Menu.Portal,
+          null,
+          React.createElement(
+            Menu.Positioner,
+            null,
+            React.createElement(
+              Menu.Popup,
+              null,
+              React.createElement(Menu.Item, null, 'First action'),
+              React.createElement(Menu.Item, null, 'Second action'),
+              React.createElement(Menu.Item, null, 'Third action'),
+            ),
+          ),
         ),
       ),
     ),

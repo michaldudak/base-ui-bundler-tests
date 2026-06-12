@@ -26,6 +26,10 @@ for (const project of projects) {
           await expect(bundlersTab).toHaveAttribute('aria-selected', 'false');
           await expect(ssrTab).toHaveAttribute('aria-selected', 'true');
 
+          await expect(fixture.getByRole('heading', { name: 'Menu' })).toBeVisible();
+          await fixture.getByRole('button', { name: 'Options' }).click();
+          await expect(page.getByRole('menuitem', { name: 'Second action' })).toBeVisible();
+
           await expect(fixture.getByRole('heading', { name: 'Slider' })).toBeVisible();
 
           const sliders = fixture.getByRole('slider');

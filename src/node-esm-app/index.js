@@ -1,6 +1,7 @@
 // This file is generated from templates/node-esm-index.js. Edit the template instead.
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
+import { Menu } from '@base-ui/react/menu';
 import { Slider } from '@base-ui/react/slider';
 import { Tabs } from '@base-ui/react/tabs';
 
@@ -21,6 +22,31 @@ function App() {
           React.createElement(Tabs.Tab, { value: 'bundlers' }, 'Bundlers'),
           React.createElement(Tabs.Tab, { value: 'ssr' }, 'SSR'),
           React.createElement(Tabs.Indicator, { renderBeforeHydration: false }),
+        ),
+      ),
+    ),
+    React.createElement(
+      'section',
+      { 'aria-label': 'Menu fixture' },
+      React.createElement('h1', null, 'Menu fixture'),
+      React.createElement(
+        Menu.Root,
+        null,
+        React.createElement(Menu.Trigger, null, 'Options'),
+        React.createElement(
+          Menu.Portal,
+          null,
+          React.createElement(
+            Menu.Positioner,
+            null,
+            React.createElement(
+              Menu.Popup,
+              null,
+              React.createElement(Menu.Item, null, 'First action'),
+              React.createElement(Menu.Item, null, 'Second action'),
+              React.createElement(Menu.Item, null, 'Third action'),
+            ),
+          ),
         ),
       ),
     ),

@@ -7,5 +7,6 @@ test('Base UI prehydration fixture renders', async () => {
   await act(async () => {});
 
   expect(screen.getByRole('tab', { name: 'Bundlers' })).not.toBeNull();
+  expect(screen.getByRole('button', { name: 'Options' })).not.toBeNull();
   expect(screen.getAllByRole('slider', { hidden: true }).length).toBe(2);
 });

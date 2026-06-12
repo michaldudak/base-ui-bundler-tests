@@ -1,17 +1,28 @@
 'use client';
 
 // This file is generated from templates/BaseUiFixture.tsx. Edit the template instead.
+import { Menu } from '@base-ui/react/menu';
 import { Slider } from '@base-ui/react/slider';
 import { Tabs } from '@base-ui/react/tabs';
 
+const menuItemClassName = 'base-ui-bundler-menu-item';
+const menuTriggerClassName = 'base-ui-bundler-menu-trigger';
 const sliderThumbClassName = 'base-ui-bundler-slider-thumb';
 const tabClassName = 'base-ui-bundler-tab';
 
 const fixtureCss = `
   .${tabClassName}:focus-visible,
+  .${menuTriggerClassName}:focus-visible,
+  .${menuItemClassName}:focus-visible,
   .${sliderThumbClassName}:has(input:focus-visible) {
     outline: 2px solid #2368e8;
     outline-offset: 2px;
+  }
+
+  .${menuItemClassName}:hover,
+  .${menuItemClassName}:focus,
+  .${menuItemClassName}[data-highlighted] {
+    background: #eef4ff;
   }
 `;
 
@@ -32,6 +43,31 @@ const styles = {
   heading: {
     margin: 0,
     fontSize: 18,
+  },
+  menuTrigger: {
+    justifySelf: 'start',
+    padding: '8px 12px',
+    border: '1px solid #b8c3d5',
+    borderRadius: 4,
+    background: '#ffffff',
+    color: '#182230',
+    font: 'inherit',
+  },
+  menuPopup: {
+    display: 'grid',
+    minWidth: 168,
+    padding: 4,
+    border: '1px solid #d7dde8',
+    borderRadius: 6,
+    background: '#ffffff',
+    boxShadow: '0 10px 24px rgb(24 34 48 / 14%)',
+  },
+  menuItem: {
+    padding: '8px 10px',
+    borderRadius: 4,
+    color: '#182230',
+    cursor: 'default',
+    font: 'inherit',
   },
   tabsList: {
     position: 'relative',
@@ -106,6 +142,30 @@ export function BaseUiFixture() {
             <Tabs.Indicator renderBeforeHydration={false} style={styles.tabsIndicator} />
           </Tabs.List>
         </Tabs.Root>
+      </section>
+
+      <section style={styles.section} aria-label="Menu">
+        <h1 style={styles.heading}>Menu</h1>
+        <Menu.Root>
+          <Menu.Trigger className={menuTriggerClassName} style={styles.menuTrigger}>
+            Options
+          </Menu.Trigger>
+          <Menu.Portal>
+            <Menu.Positioner align="start">
+              <Menu.Popup style={styles.menuPopup}>
+                <Menu.Item className={menuItemClassName} style={styles.menuItem}>
+                  First action
+                </Menu.Item>
+                <Menu.Item className={menuItemClassName} style={styles.menuItem}>
+                  Second action
+                </Menu.Item>
+                <Menu.Item className={menuItemClassName} style={styles.menuItem}>
+                  Third action
+                </Menu.Item>
+              </Menu.Popup>
+            </Menu.Positioner>
+          </Menu.Portal>
+        </Menu.Root>
       </section>
 
       <section style={styles.section} aria-label="Slider">
