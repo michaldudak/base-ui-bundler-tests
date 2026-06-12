@@ -17,6 +17,9 @@
       "context": "browser"
     }
   },
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
   "dependencies": {
     "@base-ui/react": "catalog:",
     "react": "^19.2.7",

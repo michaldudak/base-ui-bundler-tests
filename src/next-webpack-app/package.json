@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name \"Next.js (Webpack)\" --html ./dist/index.html"
+    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name \"Next.js (Webpack)\" --html ./dist/index.html --server-bundle \"./.next/server/**/*.js\""
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

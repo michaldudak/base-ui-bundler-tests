@@ -17,5 +17,11 @@ The `build` and `test` scripts run this automatically before building or testing
 
 ## Known issues
 
+- Parcel app doesn't work out of the box.
+  It has to be configured to support export conditions in package.json.
+  The configuration must be present in the package.json of the Parcel project (https://github.com/parcel-bundler/parcel/issues/4155#issuecomment-2194126835).
 - Webpack 4 needs to run Babel on node_modules (so not have `exclude: /node_modules/` on the `babel-loader` rule).
   This is required, as Base UI uses newer JS syntax that Webpack doesn't understand.
+- Webpack 4 does not support package `imports` specifiers such as `#prehydration/tabs/indicator`.
+  It requires aliasing the Base UI prehydration imports to their browser stub files manually.
+  This is a webpack 4 compatibility workaround; newer bundlers resolve the package `imports` map directly.

@@ -14,6 +14,9 @@
     "test:browser": "pnpm run sync-templates && pnpm --filter e2e-tests test:browser"
   },
   "packageManager": "pnpm@11.5.3",
+  "@parcel/resolver-default": {
+    "packageExports": true
+  },
   "devDependencies": {
     "prettier": "^3.5.3"
   }

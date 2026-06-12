@@ -8,15 +8,21 @@ interface RunOptions {
   bundle?: string;
   html?: string;
   name?: string;
+  serverBundle?: string;
   workspace?: boolean;
 }
 
 interface AnalysisResult {
+  clientPrehydrationScriptNames: string[];
   files: number;
   name: string;
+  prehydrationScripts: PrehydrationScriptsResult;
+  serverPrehydrationScriptNames: string[];
+  serverPrehydrationScripts: ServerPrehydrationScriptsResult;
   source: string;
   size: number;
   treeShaking: TreeShakingResult;
+  unusedNamespaceParts: string[];
 }
 
 const TreeShakingResult = {
@@ -28,6 +34,53 @@ const TreeShakingResult = {
 
 type TreeShakingResult = (typeof TreeShakingResult)[keyof typeof TreeShakingResult];
 
+const PrehydrationScriptsResult = {
+  StubsOnly: Symbol('StubsOnly'),
+  WithRealScriptText: Symbol('WithRealScriptText'),
+  NoFilesFound: Symbol('NoFilesFound'),
+} as const;
+
+type PrehydrationScriptsResult =
+  (typeof PrehydrationScriptsResult)[keyof typeof PrehydrationScriptsResult];
+
+const ServerPrehydrationScriptsResult = {
+  HasRealScriptText: Symbol('HasRealScriptText'),
+  MissingRealScriptText: Symbol('MissingRealScriptText'),
+  NoFilesFound: Symbol('NoFilesFound'),
+  NotChecked: Symbol('NotChecked'),
+} as const;
+
+type ServerPrehydrationScriptsResult =
+  (typeof ServerPrehydrationScriptsResult)[keyof typeof ServerPrehydrationScriptsResult];
+
+function detectPrehydrationScripts(fileContent: string) {
+  const scripts = new Set<string>();
+
+  // The prehydration scripts are inlined as string literals in server output and should be
+  // replaced with empty stubs in browser bundles. Match distinctive fragments from those
+  // script bodies instead of loose tokens like `currentScript`, which may also appear in
+  // bundler runtime code or the component implementation.
+  if (
+    // Tabs.Indicator starts from the previous sibling script insertion point and then finds
+    // the containing tab list.
+    fileContent.includes('document.currentScript.previousElementSibling') &&
+    (fileContent.includes('[role="tablist"]') || fileContent.includes('[role=\\"tablist\\"]'))
+  ) {
+    scripts.add('Tabs.Indicator');
+  }
+
+  if (
+    // Slider.Thumb starts from the script element's parent and then finds the slider control.
+    fileContent.includes('document.currentScript?.parentElement') &&
+    (fileContent.includes('closest("[data-base-ui-slider-control]")') ||
+      fileContent.includes('closest(\\"[data-base-ui-slider-control]\\")'))
+  ) {
+    scripts.add('Slider.Thumb');
+  }
+
+  return scripts;
+}
+
 function analyzeFiles(options: {
   cwd?: string;
   files: string[];
@@ -37,7 +90,8 @@ function analyzeFiles(options: {
   const files = Array.from(new Set(options.files)).sort();
   let totalSize = 0;
   let hasUnnecessaryComponents = false;
-  let hasUnnecessaryParts = false;
+  const unusedNamespaceParts = new Set<string>();
+  const prehydrationScriptNames = new Set<string>();
 
   files.forEach((file) => {
     const filePath = options.cwd ? path.join(options.cwd, file) : file;
@@ -45,13 +99,32 @@ function analyzeFiles(options: {
     totalSize += fileSize;
 
     const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+    // PreviewCard is not used in the fixtures. If it's present in the bundle, it means tree shaking didn't work properly.
     hasUnnecessaryComponents ||= fileContent.includes('PreviewCard');
-    hasUnnecessaryParts ||= fileContent.includes('MenuCheckboxItem');
+
+    // Some Menu parts are used in the fixtures, but not Menu.CheckboxItem, so we can check for that specific part to get more insights about tree shaking effectiveness.
+    if (fileContent.includes('MenuCheckboxItem')) {
+      unusedNamespaceParts.add('Menu.CheckboxItem');
+    }
+
+    detectPrehydrationScripts(fileContent).forEach((scriptName) => {
+      prehydrationScriptNames.add(scriptName);
+    });
   });
 
   return {
+    clientPrehydrationScriptNames: Array.from(prehydrationScriptNames).sort(),
     files: files.length,
     name: options.name ?? options.source,
+    prehydrationScripts:
+      files.length === 0
+        ? PrehydrationScriptsResult.NoFilesFound
+        : prehydrationScriptNames.size > 0
+          ? PrehydrationScriptsResult.WithRealScriptText
+          : PrehydrationScriptsResult.StubsOnly,
+    serverPrehydrationScriptNames: [],
+    serverPrehydrationScripts: ServerPrehydrationScriptsResult.NotChecked,
     source: options.source,
     size: totalSize,
     treeShaking:
@@ -59,9 +132,10 @@ function analyzeFiles(options: {
         ? TreeShakingResult.NoFilesFound
         : hasUnnecessaryComponents
           ? TreeShakingResult.WithUnusedComponents
-          : hasUnnecessaryParts
+          : unusedNamespaceParts.size > 0
             ? TreeShakingResult.WithUnusedParts
             : TreeShakingResult.AllGood,
+    unusedNamespaceParts: Array.from(unusedNamespaceParts).sort(),
   };
 }
 
@@ -72,6 +146,50 @@ function analyzeBundle(options: { bundle: string; cwd?: string; name?: string })
     name: options.name,
     source: options.bundle,
   });
+}
+
+function analyzeServerPrehydration(options: { cwd?: string; serverBundle: string }) {
+  const files = Array.from(new Set(glob.sync(options.serverBundle, { cwd: options.cwd }))).sort();
+  const prehydrationScriptNames = new Set<string>();
+
+  files.forEach((file) => {
+    const filePath = options.cwd ? path.join(options.cwd, file) : file;
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+    detectPrehydrationScripts(fileContent).forEach((scriptName) => {
+      prehydrationScriptNames.add(scriptName);
+    });
+  });
+
+  return {
+    names: Array.from(prehydrationScriptNames).sort(),
+    result:
+      files.length === 0
+        ? ServerPrehydrationScriptsResult.NoFilesFound
+        : prehydrationScriptNames.size > 0
+          ? ServerPrehydrationScriptsResult.HasRealScriptText
+          : ServerPrehydrationScriptsResult.MissingRealScriptText,
+  };
+}
+
+function withServerPrehydration(
+  result: AnalysisResult,
+  options: { cwd?: string; serverBundle?: string },
+): AnalysisResult {
+  if (!options.serverBundle) {
+    return result;
+  }
+
+  const serverPrehydration = analyzeServerPrehydration({
+    cwd: options.cwd,
+    serverBundle: options.serverBundle,
+  });
+
+  return {
+    ...result,
+    serverPrehydrationScriptNames: serverPrehydration.names,
+    serverPrehydrationScripts: serverPrehydration.result,
+  };
 }
 
 function formatTreeShaking(result: TreeShakingResult) {
@@ -87,7 +205,31 @@ function formatTreeShaking(result: TreeShakingResult) {
   }
 }
 
-function extractOption(script: string, option: 'bundle' | 'html' | 'name') {
+function formatClientPrehydrationScripts(result: AnalysisResult) {
+  switch (result.prehydrationScripts) {
+    case PrehydrationScriptsResult.StubsOnly:
+      return '🟢 No server-side only code';
+    case PrehydrationScriptsResult.WithRealScriptText:
+      return `🔴 Includes ${result.clientPrehydrationScriptNames.join(', ')}`;
+    case PrehydrationScriptsResult.NoFilesFound:
+      return '⚪ No files found';
+  }
+}
+
+function formatServerPrehydrationScripts(result: AnalysisResult) {
+  switch (result.serverPrehydrationScripts) {
+    case ServerPrehydrationScriptsResult.HasRealScriptText:
+      return `🟢 All good`;
+    case ServerPrehydrationScriptsResult.MissingRealScriptText:
+      return '🔴 Missing real script text';
+    case ServerPrehydrationScriptsResult.NoFilesFound:
+      return '⚪ No files found';
+    case ServerPrehydrationScriptsResult.NotChecked:
+      return 'n/a';
+  }
+}
+
+function extractOption(script: string, option: 'bundle' | 'html' | 'name' | 'server-bundle') {
   const match = script.match(new RegExp(`--${option}(?:=|\\s+)(?:"([^"]*)"|'([^']*)'|(\\S+))`));
   return match?.[1] ?? match?.[2] ?? match?.[3];
 }
@@ -246,6 +388,8 @@ function printTable(results: AnalysisResult[]) {
       Files: result.files,
       Size: result.files === 0 ? '-' : `${result.size.toFixed()} kiB`,
       'Tree shaking': formatTreeShaking(result.treeShaking),
+      'Client scripts': formatClientPrehydrationScripts(result),
+      'Server scripts': formatServerPrehydrationScripts(result),
     })),
   );
 }
@@ -263,6 +407,7 @@ function runWorkspace() {
 
       const html = extractOption(analyzeScript, 'html');
       const bundle = extractOption(analyzeScript, 'bundle');
+      const serverBundle = extractOption(analyzeScript, 'server-bundle');
       if (!html && !bundle) {
         throw new Error(`Could not find --bundle or --html in ${packageJsonFile}`);
       }
@@ -272,7 +417,7 @@ function runWorkspace() {
         name: extractOption(analyzeScript, 'name') ?? packageJson.name,
       };
 
-      return html
+      const result = html
         ? analyzeHtml({
             ...analyzeOptions,
             html,
@@ -281,6 +426,11 @@ function runWorkspace() {
             ...analyzeOptions,
             bundle: bundle!,
           });
+
+      return withServerPrehydration(result, {
+        cwd: packageDir,
+        serverBundle,
+      });
     })
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -306,19 +456,33 @@ function run(options: RunOptions) {
         bundle: options.bundle!,
         name: options.name,
       });
+  const resultWithServerPrehydration = withServerPrehydration(result, {
+    serverBundle: options.serverBundle,
+  });
 
-  console.log(`Project: ${result.name}`);
-  if (result.files === 0) {
+  console.log(`Project: ${resultWithServerPrehydration.name}`);
+  if (resultWithServerPrehydration.files === 0) {
     console.error('No JavaScript files found');
     return;
   }
 
   console.log(
-    `Found ${result.files} JavaScript file${result.files > 1 ? 's' : ''} from ${result.source}.`,
+    `Found ${resultWithServerPrehydration.files} JavaScript file${resultWithServerPrehydration.files > 1 ? 's' : ''} from ${resultWithServerPrehydration.source}.`,
   );
 
-  console.log(`Bundle size: ${result.size.toFixed().padStart(3)} kiB`);
-  console.log(`Tree shaking: ${formatTreeShaking(result.treeShaking)}`);
+  console.log(`Bundle size: ${resultWithServerPrehydration.size.toFixed().padStart(3)} kiB`);
+  console.log(`Tree shaking: ${formatTreeShaking(resultWithServerPrehydration.treeShaking)}`);
+  if (resultWithServerPrehydration.unusedNamespaceParts.length > 0) {
+    console.log(
+      `Unused namespace parts: ${resultWithServerPrehydration.unusedNamespaceParts.join(', ')}`,
+    );
+  }
+  console.log(
+    `Client prehydration scripts: ${formatClientPrehydrationScripts(resultWithServerPrehydration)}`,
+  );
+  console.log(
+    `Server prehydration scripts: ${formatServerPrehydrationScripts(resultWithServerPrehydration)}`,
+  );
 }
 
 yargs(hideBin(process.argv))
@@ -338,6 +502,11 @@ yargs(hideBin(process.argv))
         })
         .option('name', {
           description: 'Name of the project.',
+        })
+        .option('server-bundle', {
+          description:
+            'Path or glob to the server bundle file(s) that should include real prehydration scripts.',
+          type: 'string',
         })
         .option('workspace', {
           description: 'Analyze all workspace package analyze-bundle scripts and print a table.',
