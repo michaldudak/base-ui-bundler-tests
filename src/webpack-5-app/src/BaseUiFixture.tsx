@@ -5,8 +5,10 @@ import { Slider } from '@base-ui/react/slider';
 import { Tabs } from '@base-ui/react/tabs';
 
 const sliderThumbClassName = 'base-ui-bundler-slider-thumb';
+const tabClassName = 'base-ui-bundler-tab';
 
 const fixtureCss = `
+  .${tabClassName}:focus-visible,
   .${sliderThumbClassName}:has(input:focus-visible) {
     outline: 2px solid #2368e8;
     outline-offset: 2px;
@@ -95,10 +97,10 @@ export function BaseUiFixture() {
         <h1 style={styles.heading}>Tabs</h1>
         <Tabs.Root defaultValue="bundlers">
           <Tabs.List style={styles.tabsList}>
-            <Tabs.Tab value="bundlers" style={styles.tab}>
+            <Tabs.Tab className={tabClassName} value="bundlers" style={styles.tab}>
               Bundlers
             </Tabs.Tab>
-            <Tabs.Tab value="ssr" style={styles.tab}>
+            <Tabs.Tab className={tabClassName} value="ssr" style={styles.tab}>
               SSR
             </Tabs.Tab>
             <Tabs.Indicator renderBeforeHydration={false} style={styles.tabsIndicator} />
