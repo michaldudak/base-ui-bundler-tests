@@ -2,10 +2,13 @@
   "name": "base-ui-bundler-tests",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
   "scripts": {
     "sync-templates": "node scripts/sync-templates.mjs",
     "build": "pnpm run sync-templates && pnpm -r run build",
-    "analyze-bundles": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/analyze-bundle.ts --workspace",
+    "analyze-bundles": "node scripts/analyze-bundle.ts --workspace",
     "typecheck": "pnpm run sync-templates && pnpm -r run typecheck",
     "test": "pnpm run sync-templates && pnpm -r run test"
   },
