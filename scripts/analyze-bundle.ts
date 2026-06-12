@@ -56,17 +56,24 @@ type ServerPrehydrationScriptsResult =
 function detectPrehydrationScripts(fileContent: string) {
   const scripts = new Set<string>();
 
+  // The prehydration scripts are inlined as string literals in server output and should be
+  // replaced with empty stubs in browser bundles. Match distinctive fragments from those
+  // script bodies instead of loose tokens like `currentScript`, which may also appear in
+  // bundler runtime code or the component implementation.
   if (
+    // Tabs.Indicator starts from the previous sibling script insertion point and then finds
+    // the containing tab list.
     fileContent.includes('document.currentScript.previousElementSibling') &&
-    fileContent.includes('[role="tablist"]')
+    (fileContent.includes('[role="tablist"]') || fileContent.includes('[role=\\"tablist\\"]'))
   ) {
     scripts.add('Tabs.Indicator');
   }
 
   if (
-    fileContent.includes('currentScript') &&
-    fileContent.includes('parentElement') &&
-    fileContent.includes('data-base-ui-slider-control')
+    // Slider.Thumb starts from the script element's parent and then finds the slider control.
+    fileContent.includes('document.currentScript?.parentElement') &&
+    (fileContent.includes('closest("[data-base-ui-slider-control]")') ||
+      fileContent.includes('closest(\\"[data-base-ui-slider-control]\\")'))
   ) {
     scripts.add('Slider.Thumb');
   }
