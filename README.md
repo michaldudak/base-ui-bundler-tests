@@ -16,3 +16,6 @@ Run `pnpm run sync-templates` after changing a template.
 The `build` and `test` scripts run this automatically before building or testing.
 
 ## Known issues
+
+- Webpack 4 needs to run Babel on node_modules (so not have `exclude: /node_modules/` on the `babel-loader` rule).
+  This is required, as Base UI uses newer JS syntax that Webpack doesn't understand.
