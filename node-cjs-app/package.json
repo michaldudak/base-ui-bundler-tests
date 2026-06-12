@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "commonjs",
-  "script": {
-    "start": "node index.js"
+  "scripts": {
+    "start": "node index.js",
+    "typecheck": "node --check index.js"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

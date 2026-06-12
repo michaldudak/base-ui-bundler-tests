@@ -6,6 +6,7 @@
     "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "prebuild": "rimraf dist",
+    "typecheck": "tsc --noEmit",
     "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Webpack5 --bundle ./dist/bundle.js"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "babel-loader": "latest",
     "html-webpack-plugin": "latest",
     "rimraf": "latest",
+    "typescript": "latest",
     "webpack": "^5",
     "webpack-cli": "latest",
     "webpack-dev-server": "latest"

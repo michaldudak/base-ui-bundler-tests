@@ -6,6 +6,7 @@
     "sync-templates": "node scripts/sync-templates.mjs",
     "build": "pnpm run sync-templates && pnpm -r run build",
     "analyze-bundles": "pnpm --recursive --aggregate-output run analyze-bundle",
+    "typecheck": "pnpm run sync-templates && pnpm -r run typecheck",
     "test": "pnpm run sync-templates && pnpm -r run test"
   },
   "packageManager": "pnpm@11.5.3",
