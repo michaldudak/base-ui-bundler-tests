@@ -2,12 +2,15 @@
   "name": "rspack-app",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
   "scripts": {
     "dev": "rspack serve --mode=development",
     "build": "rspack build --mode=production",
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rspack --html ./dist/index.html"
+    "analyze-bundle": "node ../scripts/analyze-bundle.ts --name Rspack --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

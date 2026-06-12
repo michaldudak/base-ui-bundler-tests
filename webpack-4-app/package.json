@@ -2,12 +2,15 @@
   "name": "webpack-4-app",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
   "scripts": {
     "dev": "webpack-dev-server --open",
     "build": "webpack --mode=production",
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name 'Webpack 4' --html ./dist/index.html"
+    "analyze-bundle": "node ../scripts/analyze-bundle.ts --name 'Webpack 4' --html ./dist/index.html"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

@@ -2,12 +2,15 @@
   "name": "rollup-app",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "^22.18.0 || >=23.6.0"
+  },
   "type": "module",
   "scripts": {
     "build": "rollup -c",
     "prebuild": "rimraf dist",
     "typecheck": "tsc --noEmit",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rollup --bundle dist/index.min.js"
+    "analyze-bundle": "node ../scripts/analyze-bundle.ts --name Rollup --bundle dist/index.min.js"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

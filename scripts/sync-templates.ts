@@ -2,9 +2,14 @@ import { copyFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+interface CopyPlan {
+  targets: string[];
+  template: string;
+}
+
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const copies = [
+const copies: CopyPlan[] = [
   {
     template: 'BaseUiFixture.tsx',
     targets: [
