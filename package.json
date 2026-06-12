@@ -6,7 +6,7 @@
     "node": "^22.18.0 || >=23.6.0"
   },
   "scripts": {
-    "sync-templates": "node scripts/sync-templates.mjs",
+    "sync-templates": "node scripts/sync-templates.ts",
     "build": "pnpm run sync-templates && pnpm -r run build",
     "analyze-bundles": "node scripts/analyze-bundle.ts --workspace",
     "typecheck": "pnpm run sync-templates && pnpm -r run typecheck",
@@ -17,7 +17,6 @@
     "packageExports": true
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "process": "^0.11.10"
+    "prettier": "^3.5.3"
   }
 }
