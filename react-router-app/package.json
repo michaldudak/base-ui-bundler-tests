@@ -9,7 +9,7 @@
     "prebuild": "rimraf build .react-router",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name \"React Router\" --bundle \"./build/client/assets/*.js\""
+    "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name \"React Router\" --bundle \"./build/client/assets/*.js\" --server-bundle \"./build/server/**/*.js\""
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
