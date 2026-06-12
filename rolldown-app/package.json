@@ -6,6 +6,7 @@
     "dev": "esbuild index.tsx --bundle --outfile=dist/index.js --servedir=.",
     "build": "rolldown -c rolldown.config.ts",
     "prebuild": "rimraf dist",
+    "typecheck": "tsc --noEmit",
     "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name Rolldown --bundle dist/index.min.js"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "rolldown": "latest",
-    "rimraf": "latest"
+    "rimraf": "latest",
+    "typescript": "latest"
   }
 }

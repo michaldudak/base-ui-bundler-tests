@@ -6,6 +6,7 @@
     "dev": "esbuild index.tsx --bundle --outfile=dist/index.js --servedir=.",
     "build": "esbuild index.tsx --bundle --minify --sourcemap --outfile=dist/index.min.js",
     "prebuild": "rimraf dist",
+    "typecheck": "tsc --noEmit",
     "analyze-bundle": "node --experimental-strip-types --disable-warning=ExperimentalWarning ../scripts/analyze-bundle.ts --name ESBuild --bundle dist/index.min.js"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "esbuild": "latest",
-    "rimraf": "latest"
+    "rimraf": "latest",
+    "typescript": "latest"
   }
 }
