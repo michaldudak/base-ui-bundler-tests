@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -14,6 +14,12 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+          // Tell Babel which env it is building for. @babel/preset-react v8
+          // enables its development JSX transform (jsxDEV) based on api.env(),
+          // which otherwise defaults to "development" and breaks the prod bundle.
+          options: {
+            envName: argv.mode === 'production' ? 'production' : 'development',
+          },
         },
       },
     ],
@@ -30,4 +36,4 @@ module.exports = {
     compress: true,
     port: 9000,
   },
-};
+});
