@@ -3,4 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [reactRouter()],
+  ssr: {
+    noExternal: ['@base-ui/react'],
+  },
 });

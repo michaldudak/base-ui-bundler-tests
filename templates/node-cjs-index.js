@@ -2,40 +2,81 @@
 const React = require('react');
 const { renderToString } = require('react-dom/server');
 const { Menu } = require('@base-ui/react/menu');
+const { Slider } = require('@base-ui/react/slider');
+const { Tabs } = require('@base-ui/react/tabs');
 
 function App() {
   return React.createElement(
-    'div',
+    'main',
     null,
     React.createElement(
-      Menu.Root,
-      null,
-      React.createElement(Menu.Trigger, null, 'Menu'),
+      'section',
+      { 'aria-label': 'Tabs fixture' },
+      React.createElement('h1', null, 'Tabs fixture'),
       React.createElement(
-        Menu.Portal,
-        null,
+        Tabs.Root,
+        { defaultValue: 'bundlers' },
         React.createElement(
-          Menu.Positioner,
+          Tabs.List,
+          null,
+          React.createElement(Tabs.Tab, { value: 'bundlers' }, 'Bundlers'),
+          React.createElement(Tabs.Tab, { value: 'ssr' }, 'SSR'),
+          React.createElement(Tabs.Indicator, { renderBeforeHydration: false }),
+        ),
+        React.createElement(Tabs.Panel, { value: 'bundlers' }, 'Bundlers panel'),
+        React.createElement(Tabs.Panel, { value: 'ssr' }, 'SSR panel'),
+      ),
+    ),
+    React.createElement(
+      'section',
+      { 'aria-label': 'Menu fixture' },
+      React.createElement('h1', null, 'Menu fixture'),
+      React.createElement(
+        Menu.Root,
+        null,
+        React.createElement(Menu.Trigger, null, 'Options'),
+        React.createElement(
+          Menu.Portal,
           null,
           React.createElement(
-            Menu.Popup,
-            null,
+            Menu.Positioner,
+            { align: 'start' },
             React.createElement(
-              Menu.Item,
-              { onClick: () => console.log('Item 1 clicked') },
-              'Item 1',
-            ),
-            React.createElement(
-              Menu.Item,
-              { onClick: () => console.log('Item 2 clicked') },
-              'Item 2',
-            ),
-            React.createElement(
-              Menu.Item,
-              { onClick: () => console.log('Item 3 clicked') },
-              'Item 3',
+              Menu.Popup,
+              null,
+              React.createElement(Menu.Item, null, 'First action'),
+              React.createElement(Menu.Item, null, 'Second action'),
+              React.createElement(Menu.Item, null, 'Third action'),
             ),
           ),
+        ),
+      ),
+    ),
+    React.createElement(
+      'section',
+      { 'aria-label': 'Slider fixture' },
+      React.createElement('h1', null, 'Slider fixture'),
+      React.createElement(
+        Slider.Root,
+        {
+          defaultValue: [20, 80],
+          min: 0,
+          max: 100,
+          step: 5,
+          thumbAlignment: 'edge',
+        },
+        React.createElement(
+          Slider.Control,
+          null,
+          React.createElement(Slider.Track, null, React.createElement(Slider.Indicator)),
+          React.createElement(Slider.Thumb, {
+            index: 0,
+            getAriaLabel: () => 'Minimum confidence',
+          }),
+          React.createElement(Slider.Thumb, {
+            index: 1,
+            getAriaLabel: () => 'Maximum confidence',
+          }),
         ),
       ),
     ),

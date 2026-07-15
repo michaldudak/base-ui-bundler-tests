@@ -12,7 +12,7 @@
     "prebuild": "rimraf dist",
     "preview": "node server.js",
     "typecheck": "tsc -b",
-    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name \"Vite SSR\" --html ./dist/client/index.html"
+    "analyze-bundle": "node ../../scripts/analyze-bundle.ts --name \"Vite SSR\" --html ./dist/client/index.html --server-bundle \"./dist/server/**/*.js\""
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

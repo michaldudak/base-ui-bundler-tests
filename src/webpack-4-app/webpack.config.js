@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const baseUiReactPath = path.dirname(require.resolve('@base-ui/react/package.json'));
+
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -18,6 +20,16 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      '#prehydration/slider/thumb': path.join(
+        baseUiReactPath,
+        'slider/thumb/prehydrationScript.stub.js',
+      ),
+      '#prehydration/tabs/indicator': path.join(
+        baseUiReactPath,
+        'tabs/indicator/prehydrationScript.stub.js',
+      ),
+    },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [
