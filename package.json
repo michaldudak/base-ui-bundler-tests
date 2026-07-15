@@ -7,6 +7,7 @@
   },
   "scripts": {
     "sync-templates": "node scripts/sync-templates.ts",
+    "postinstall": "pnpm run sync-templates",
     "build": "pnpm run sync-templates && pnpm -r run build",
     "analyze-bundles": "node scripts/analyze-bundle.ts --workspace",
     "typecheck": "pnpm run sync-templates && pnpm -r run typecheck",

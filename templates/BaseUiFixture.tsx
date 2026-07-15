@@ -1,6 +1,6 @@
 'use client';
 
-// This file is generated from templates/BaseUiFixture.tsx. Edit the template instead.
+// The source of truth is templates/BaseUiFixture.tsx. Do not edit generated copies.
 import { Menu } from '@base-ui/react/menu';
 import { Slider } from '@base-ui/react/slider';
 import { Tabs } from '@base-ui/react/tabs';

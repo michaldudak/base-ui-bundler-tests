@@ -1,4 +1,3 @@
-// This file is generated from templates/node-esm-index.js. Edit the template instead.
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Menu } from '@base-ui/react/menu';
