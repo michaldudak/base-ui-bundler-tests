@@ -5,15 +5,14 @@ It is used to test if Base UI package can successfully be imported and used in t
 
 ## Fixture workflow
 
-The shared components live in the `templates` directory.
-Edit the template files instead of editing the generated copies inside each project:
+The shared browser component lives in the `templates` directory.
+Edit the template instead of editing the generated copies inside each project:
 
 - `templates/BaseUiFixture.tsx` is copied into each browser, Next.js, and Jest project.
-- `templates/node-esm-index.js` is copied to `src/node-esm-app/index.js`.
-- `templates/node-cjs-index.js` is copied to `src/node-cjs-app/index.js`.
 
-Run `pnpm run sync-templates` after changing a template.
-The `build` and `test` scripts run this automatically before building or testing.
+`pnpm install` generates the copies automatically. The root `build`, `typecheck`, `test`, and
+`test:browser` scripts also synchronize them before running, and you can run
+`pnpm run sync-templates` explicitly after changing a template.
 
 ## Known issues
 

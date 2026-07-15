@@ -32,14 +32,6 @@ const copies: CopyPlan[] = [
       'src/webpack-5-app/src/BaseUiFixture.tsx',
     ],
   },
-  {
-    template: 'node-esm-index.js',
-    targets: ['src/node-esm-app/index.js'],
-  },
-  {
-    template: 'node-cjs-index.js',
-    targets: ['src/node-cjs-app/index.js'],
-  },
 ];
 
 for (const copy of copies) {

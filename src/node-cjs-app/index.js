@@ -1,4 +1,3 @@
-// This file is generated from templates/node-cjs-index.js. Edit the template instead.
 const React = require('react');
 const { renderToString } = require('react-dom/server');
 const { Menu } = require('@base-ui/react/menu');
