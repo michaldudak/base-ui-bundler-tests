@@ -26,8 +26,8 @@
     "@types/react-dom": "^19.2.3",
     "babel-loader": "^8",
     "html-webpack-plugin": "^4",
-    "rimraf": "latest",
-    "typescript": "latest",
+    "rimraf": "6.1.3",
+    "typescript": "6.0.3",
     "webpack": "^4.37",
     "webpack-cli": "^4.7",
     "webpack-dev-server": "^4"
