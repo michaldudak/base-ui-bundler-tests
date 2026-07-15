@@ -16,17 +16,17 @@
   },
   "dependencies": {
     "@base-ui/react": "catalog:",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "next": "latest"
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "next": "16.2.10"
   },
   "devDependencies": {
-    "typescript": "latest",
-    "@types/node": "latest",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "rimraf": "latest"
+    "typescript": "6.0.3",
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "10.7.0",
+    "eslint-config-next": "16.2.10",
+    "rimraf": "6.1.3"
   }
 }

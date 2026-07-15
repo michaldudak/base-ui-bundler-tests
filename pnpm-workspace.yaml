@@ -6,7 +6,6 @@ packages:
 allowBuilds:
   '@parcel/watcher': false
   '@swc/core': false
-  core-js: false
   esbuild: false
   fsevents: false
   lmdb: false
@@ -15,6 +14,4 @@ allowBuilds:
   unrs-resolver: false
 
 catalog:
-  '@base-ui/react': 'https://pkg.pr.new/mui/base-ui/@base-ui/react@849178e'
-
-blockExoticSubdeps: false
+  '@base-ui/react': 1.6.0

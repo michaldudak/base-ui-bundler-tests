@@ -13,11 +13,11 @@
     "test": "pnpm run sync-templates && pnpm -r run test",
     "test:browser": "pnpm run sync-templates && pnpm --filter e2e-tests test:browser"
   },
-  "packageManager": "pnpm@11.5.3",
+  "packageManager": "pnpm@11.13.0",
   "@parcel/resolver-default": {
     "packageExports": true
   },
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "prettier": "3.9.5"
   }
 }
