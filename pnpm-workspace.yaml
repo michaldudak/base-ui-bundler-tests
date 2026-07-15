@@ -6,7 +6,6 @@ packages:
 allowBuilds:
   '@parcel/watcher': false
   '@swc/core': false
-  core-js: false
   esbuild: false
   fsevents: false
   lmdb: false

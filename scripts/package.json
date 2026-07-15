@@ -7,12 +7,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "yargs": "^18.0.0"
+    "yargs": "18.0.0"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "@types/yargs": "^17.0.33",
-    "fast-glob": "^3.3.3",
+    "@types/node": "24.13.3",
+    "@types/yargs": "17.0.35",
+    "fast-glob": "3.3.3",
     "typescript": "6.0.3"
   }
 }
