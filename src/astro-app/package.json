@@ -17,7 +17,7 @@
   "dependencies": {
     "@base-ui/react": "catalog:",
     "@astrojs/react": "6.0.1",
-    "astro": "7.0.9",
+    "astro": "7.1.0",
     "react": "19.2.7",
     "react-dom": "19.2.7"
   },
