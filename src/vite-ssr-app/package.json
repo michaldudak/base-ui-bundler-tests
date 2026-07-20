@@ -18,7 +18,7 @@
     "@base-ui/react": "catalog:",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "vite": "8.1.4"
+    "vite": "8.1.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "6.0.3",
