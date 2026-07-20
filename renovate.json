@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "minimumReleaseAge": "3 days",
-  "schedule": "* * * * 0",
+  "schedule": ["* * 15 * *"],
   "packageRules": [
     {
       "description": "Keep TypeScript on version 6",
@@ -17,7 +17,13 @@
     {
       "description": "Keep the legacy webpack-4 app on its current major versions",
       "matchFileNames": ["src/webpack-4-app/**"],
-      "matchPackageNames": ["webpack", "webpack-*", "babel-loader", "html-webpack-plugin", "@babel/**"],
+      "matchPackageNames": [
+        "webpack",
+        "webpack-*",
+        "babel-loader",
+        "html-webpack-plugin",
+        "@babel/**"
+      ],
       "matchUpdateTypes": ["major"],
       "enabled": false
     }
