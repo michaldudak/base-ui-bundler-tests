@@ -447,11 +447,11 @@ importers:
         version: 19.2.7(react@19.2.7)
     devDependencies:
       '@rsbuild/core':
-        specifier: 2.1.5
-        version: 2.1.5
+        specifier: 2.1.6
+        version: 2.1.6
       '@rsbuild/plugin-react':
         specifier: 2.1.0
-        version: 2.1.0(@rsbuild/core@2.1.5)(@rspack/core@2.1.4(@swc/helpers@0.5.23))
+        version: 2.1.0(@rsbuild/core@2.1.6)(@rspack/core@2.1.4(@swc/helpers@0.5.23))
       '@types/react':
         specifier: 19.2.17
         version: 19.2.17
@@ -4020,8 +4020,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@rsbuild/core@2.1.5':
-    resolution: {integrity: sha512-7TW4U1SH7VxQZzSTIOzvwj5lo9uNTmGpsmTXFr4axQAE4giLDKP3kVUA1ZW4P3/Mz4QQJJyvZP29mVcb8kZCfg==}
+  '@rsbuild/core@2.1.6':
+    resolution: {integrity: sha512-w2WxblstOgHnDElkqJZVO/jM/EqPaEhg7zqQhON3Xu3Mj9FlVOJx+SgimOtghFzxLt8x7atX4oMUtMTNSZGf0Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -13963,19 +13963,19 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.62.2':
     optional: true
 
-  '@rsbuild/core@2.1.5':
+  '@rsbuild/core@2.1.6':
     dependencies:
       '@rspack/core': 2.1.4(@swc/helpers@0.5.23)
       '@swc/helpers': 0.5.23
     transitivePeerDependencies:
       - '@module-federation/runtime-tools'
 
-  '@rsbuild/plugin-react@2.1.0(@rsbuild/core@2.1.5)(@rspack/core@2.1.4(@swc/helpers@0.5.23))':
+  '@rsbuild/plugin-react@2.1.0(@rsbuild/core@2.1.6)(@rspack/core@2.1.4(@swc/helpers@0.5.23))':
     dependencies:
       '@rspack/plugin-react-refresh': 2.0.2(@rspack/core@2.1.4(@swc/helpers@0.5.23))(react-refresh@0.18.0)
       react-refresh: 0.18.0
     optionalDependencies:
-      '@rsbuild/core': 2.1.5
+      '@rsbuild/core': 2.1.6
     transitivePeerDependencies:
       - '@rspack/core'
 
